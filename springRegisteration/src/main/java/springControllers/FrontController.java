@@ -12,4 +12,5 @@ public class FrontController {
 		System.out.println("Sending you to index.jsp");
 		return "index";
 	}
+	
 }
