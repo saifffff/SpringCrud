@@ -59,7 +59,7 @@ public class FormController {
 	
 	@RequestMapping("/err")
 	public void error() {
-		System.out.println("taking you to error page...");
+		System.out.println("some error has occured...");
 	}
 	
 	public int createUser(User user) {
