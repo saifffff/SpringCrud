@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@page isELIgnored="false"%>
@@ -6,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Home</title>
+    <title>All users</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
@@ -46,8 +47,16 @@
         </header>
 
         <main>
-            <p class="lead"> For : ${user.toString() }</p>
-            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230508202141/Spring-MVC-Tutorial.webp" alt="Welcome Image" class="img-rounded img-responsive mx-auto d-block" style="width: 50%;">
+            <h1>List of All Users</h1>
+			<h3>Users</h3>
+					<ul>
+					  <c:forEach var="user" items="${allUsers}">
+					    <li>
+					      ${user}}
+					    </li>
+					  </c:forEach>
+					</ul>
+			            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230508202141/Spring-MVC-Tutorial.webp" alt="Welcome Image" class="img-rounded img-responsive mx-auto d-block" style="width: 50%;">
         </main>
     </div>
 

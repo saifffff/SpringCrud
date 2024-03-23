@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -40,11 +41,20 @@
     <div class="container">
 
 		<h3 class="text-center">Register New User</h3>
-		<form  action="submitForm" method="post">
+		
+		<form  action="submitForm" method="post"  >
+		
+		<div class="mb-3">
+		  <label for="userid" class="form-label">Username</label>
+		  <input type="text" class="form-control" name="userid" required>
+		</div>
+		
 		  <div class="mb-3">
 		    <label for="fullName" class="form-label">Name</label>
 		    <input type="text" class="form-control" name="fullName" >
 		  </div>
+		  
+		  
 		  <div class="mb-3">
 		    <label for="email" class="form-label">Email</label>
 		    <input type="email" class="form-control" name="userEmail">
@@ -54,6 +64,37 @@
 		    <label for="passWord" class="form-label">Password</label>
 		    <input type="password" class="form-control" name="passWord">
 		  </div>
+		  
+		  <div class="mb-3">
+		    <label for="dateOfBirth" class="form-label">Date of Birth</label>
+		    <input type="date" class="form-control" name="dateOfBirth" required>
+		  </div>
+		  
+		  <div class="mb-3">
+		    <label for="coursestick" class="form-label">Select Courses (choose multiple)</label>
+		    <br>
+		    <div class="form-check form-check-inline">
+		      <input class="form-check-input" type="checkbox" name="coursestick" id="courseJava" value="java">
+		      <label class="form-check-label" for="courseJava">Java</label>
+		    </div>
+		    <div class="form-check form-check-inline">
+		      <input class="form-check-input" type="checkbox" name="coursestick" id="coursePython" value="python">
+		      <label class="form-check-label" for="coursePython">Python</label>
+		    </div>
+		    <div class="form-check form-check-inline">
+		      <input class="form-check-input" type="checkbox" name="coursestick" id="courseCpp" value="c++">
+		      <label class="form-check-label" for="courseCpp">C++</label>
+		    </div>
+		    <div class="form-check form-check-inline">
+		      <input class="form-check-input" type="checkbox" name="coursestick" id="courseJavascript" value="javascript">
+		      <label class="form-check-label" for="courseJavascript">Javascript</label>
+		    </div>
+		    <div class="form-check form-check-inline">
+		      <input class="form-check-input" type="checkbox" name="coursestick" id="courseDataScience" value="data science">
+		      <label class="form-check-label" for="courseDataScience">Data Science</label>
+		    </div>
+		  </div>
+		  
 		  
 		   <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 		   
@@ -67,8 +108,20 @@
 			  <label class="btn btn-outline-primary" for="btnradio3">Non-Binary</label>
 			  
 			</div>
+			
 			<br/>
 			<br/>
+			
+			<c:if test="${not empty result.allErrors}">
+		    <ul style="color: red;">
+			      <c:forEach var="error" items="${result.allErrors}">
+			        	<li>${error.defaultMessage}</li>
+			      </c:forEach>
+		    </ul>
+			</c:if>
+			
+			
+			
 		 	<div class="container text-center">
 		 		 <button type="submit" class="btn btn-primary">Register</button>
 		 	</div>
